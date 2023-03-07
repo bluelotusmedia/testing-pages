@@ -1,12 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Document</title>
+  <!-- Load Vue.js from CDN -->
+  <script src="https://unpkg.com/vue@next"></script>
+  <!-- Load Eagle.js from CDN -->
+  <script src="https://unpkg.com/eagle.js"></script>
+  <!-- Load Eagle.js default theme -->
+  <link rel="stylesheet" href="https://unpkg.com/eagle.js/dist/themes/default.css">
 </head>
 <body>
-   Hello World 2
+  <div id="app">
+    <!-- Create a slideshow component with Eagle.js -->
+    <slideshow :ratio="'16:9'">
+      <!-- Create a slide component with Eagle.js -->
+      <slide :title="'Welcome to my slideshow'">
+        <!-- Use high res placeholder image from Unsplash -->
+        <img src="https://source.unsplash.com/random/800x450" alt="Random image" class="img-fluid" />
+      </slide>
+      <!-- Create another slide component with Eagle.js -->
+      <slide :title="'Another slide'">
+        <!-- Use another high res placeholder image from Unsplash -->
+        <img src="https://source.unsplash.com/random/800x450?nature" alt="Random nature image" class="img-fluid" />
+      </slide>
+    </slideshow>
+  </div>
+
+  <script>
+    // Create a Vue app and mount it to the div with id app
+    const app = Vue.createApp({})
+    app.use(Eagle) // Use Eagle.js as a plugin
+    app.mount('#app')
+  </script>
+
 </body>
 </html>
